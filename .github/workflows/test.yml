@@ -1,0 +1,22 @@
+name: Test image build
+on:
+  pull_request:
+    paths:
+      - Dockerfile
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+  
+      - name: Build image
+        id: build_image
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: kanister-kubectl-1.27
+          tags: ${{ github.sha }}
+          containerfiles: |
+            ./Dockerfile
