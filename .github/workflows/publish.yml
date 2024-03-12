@@ -9,20 +9,15 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-
     permissions:
       contents: read
       packages: write
-
     steps:
-
       - uses: actions/checkout@v4
-
       - name: Get parent image tag
         id: tag
         run: |
           echo "TAG_NAME=$(sed '1!d ; s/.*://g' Dockerfile)" >> $GITHUB_OUTPUT
-  
       - name: Build image
         id: build_image
         uses: redhat-actions/buildah-build@v2
@@ -31,7 +26,6 @@ jobs:
           tags: latest ${{ steps.tag.outputs.TAG_NAME }}
           containerfiles: |
             ./Dockerfile
-
       - name: Push image
         uses: redhat-actions/push-to-registry@v2
         with:
