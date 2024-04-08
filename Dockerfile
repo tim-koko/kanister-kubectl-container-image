@@ -1,4 +1,4 @@
-FROM ghcr.io/kanisterio/kanister-tools:0.106.0
+FROM ghcr.io/kanisterio/kanister-tools:0.107.0
 ENV kubectl_version="v1.27.11"
 
 LABEL org.opencontainers.image.base.name="ghcr.io/kanisterio/kanister-tools:0.105.0" \
