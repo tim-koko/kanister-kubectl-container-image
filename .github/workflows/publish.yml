@@ -17,7 +17,7 @@ jobs:
       - name: Get parent image tag
         id: tag
         run: |
-          echo "TAG_NAME=$(sed '1!d ; s/.*://g' Dockerfile)" >> $GITHUB_OUTPUT
+          echo "TAG_NAME=$(awk '/^FROM ghcr.io\/kanisterio\/kanister-tools/ {print $NF}' Dockerfile | sed 's/^.*://g')" >> $GITHUB_OUTPUT
       - name: Build image
         id: build_image
         uses: redhat-actions/buildah-build@v2
