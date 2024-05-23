@@ -21,3 +21,4 @@ LABEL org.opencontainers.image.base.name="ghcr.io/kanisterio/kanister-tools" \
       org.opencontainers.image.version="${kubectl_version}"
 
 COPY --from=binaries /usr/local/bin/* /usr/local/bin/
+
