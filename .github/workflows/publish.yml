@@ -3,6 +3,8 @@ on:
   pull_request:
     types:
       - closed
+    paths:
+      - Dockerfile
 
 jobs:
   publish:
