@@ -1,13 +1,12 @@
 name: Publish image
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - Dockerfile
+  pull_request:
+    types:
+      - closed
 
 jobs:
   publish:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
