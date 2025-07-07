@@ -12,7 +12,7 @@ RUN curl -LO https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${oc_vers
     mv ./oc /usr/local/bin/oc
 
 
-FROM ghcr.io/kanisterio/kanister-tools:0.113.0
+FROM ghcr.io/kanisterio/kanister-tools:0.114.0
 
 LABEL org.opencontainers.image.base.name="ghcr.io/kanisterio/kanister-tools" \
       org.opencontainers.image.description="This is NOT an official kanister image. This is an alternative image providing kanister tools and a more recent kubectl version." \
