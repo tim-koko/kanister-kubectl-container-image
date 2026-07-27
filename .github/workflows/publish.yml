@@ -21,7 +21,7 @@ jobs:
           echo "TAG_NAME=$(awk '/^FROM ghcr.io\/kanisterio\/kanister-tools/ {print $NF}' Dockerfile | sed 's/^.*://g')" >> $GITHUB_OUTPUT
       - name: Build image
         id: build_image
-        uses: redhat-actions/buildah-build@v2
+        uses: redhat-actions/buildah-build@v3
         with:
           image: kanister-kubectl-1.27
           tags: latest ${{ steps.tag.outputs.TAG_NAME }}
